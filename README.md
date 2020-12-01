@@ -1,4 +1,4 @@
-# PRJ_TeamWorking
+# PRJ TeamWorking
 Student Team Making &amp; Collaboration
 
 ## Group No. 1: 
