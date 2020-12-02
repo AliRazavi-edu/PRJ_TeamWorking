@@ -1,18 +1,11 @@
 ---
 layout: page
-title: About
+title: درباره
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+همکاری تیم های دانشجویی برای پروژه ای درسی و یا پایانی غرایندی مستمر و فراگیر است
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+تعریف پروژه ای درسی و گروهی و تشکیل تیم های موثر میتواند در بهره وری و اثر بخشی سیستم آموزشی بسیار موثر باشد
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+در این پروزه تلاش میشود تا با کمک مهندسی نرم افزار فرایند تعریف پروژه و تشکیل تیم های کاری تسهیل و تیدیل به امری لذت بخش و آمورنده شود
