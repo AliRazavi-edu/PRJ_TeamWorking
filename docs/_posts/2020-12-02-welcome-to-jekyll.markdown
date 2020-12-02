@@ -1,29 +1,31 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "پروژه کار گروهی"
 date:   2020-12-02 01:05:15 +0330
 categories: jekyll update
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+دوستان گرامی
+با درود و عرض ادب
+پیروی درخواست اینجانب برای عضویت در گروه تولید نرم افزار « مدیریت پروژه » بدینوسیله خواهشمند است به نکات زیر توجه فرمائید:
+1-	این گروه از این جهت تشکیل گردیده تا یک کار گروهی را به شیوه ای مهندسی با هم تجربه کنیم.
+2-	بستر برنامه نویسی که فعلاً برای این پروژه در نظر گرفته شد – جاوا اسکریپت و در فریم ورک «ریکت» می باشد.
+3-	آدرس ریپازیتوری پروژه های نرم افزاری که زیر نظر جناب اقای دکتر رضوی فعالیت دارند از این قرار است ، آدرس ریپازیتوری پروژه ما نیز در همین ریپازیتوری قرار گرفته است.
+https://github.com/AliRazavi-edu/PRJ_TeamWorking
 
-Jekyll requires blog post files to be named according to the following format:
+4-	لطفاً عزیزان علاقه مند ، از طریق یکی از روشهای زیر جهت همکاری در گروه اعلام آمادگی نمایند :
+الف: ارسال Email برای اینجانب به آدرس ali.mehraei@gmail.com
+ب: ارسال پیام در ریپازیتوری پروژه و در قسمت issues ، تحت عنوان collaboration request  ( از طریق لینک زیر :) 
+https://github.com/AliMehraei/ProjectManagement/issues/1
 
-`YEAR-MONTH-DAY-title.MARKUP`
-
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+5-	درخواست ها لطفاً شامل موارد زیر باشد :
+الف: نام و نام خانوادگی به طور کامل
+ب: مقطع تحصیلی 
+ج: نام دروسی که با استاد رضوی در این ترم دارید
+د: آدرس Email (حتی اگر با همان ایمیل درخواست خود را ارسال نموده باشید)
+ه: لینک رزومه و ریپازیتوری
+6-	درخواستهایی که فاقد مشخصات فوق الذکر باشند نادیده گرفته خواهند شد .
+7-	عزیزانی که قبلاً اطلاعات را به صورت کامل ارسال نموده اند نیازی نیست که دوباره اطلاعات را ارسال نمایند.
+8-	اگر قبلاً در زمینه react کار کرده اید حتماً در درخواست قید نمایید.
+9-	توجه داشته باشید به اینکه حتماً تجربه کاری و یا تخصص برنامه نویسی داشته باشید الزاما نیازی نیست.
+10-	در پروه علاوه بر فعالیتهایی نظیر طراحی و تحلیل و برنامه نویسی و ... جایگاههایی نظیر اسپانسرینگ و سرچر و ... ( بسته به تعداد درخواست دهندگان ) تعریف خواهد شد.
+با سپاس از همراهی دوستان
