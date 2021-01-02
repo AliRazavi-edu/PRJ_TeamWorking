@@ -1,3 +1,19 @@
+
+<div dir="rtl">
+عنوان پروژه
+
+سیستم مدیریت و ایجاد گروههای دانشجویی
+
+شرح پروژه
+این نرم افزار بر اساس زبانهای جاوا اسکریپت و پی اچ پی در قالب لاراول - ریکت نوشته خواهد شد .
+
+هدف از اجرای این پروژه در گام اول تجربه یک کار گروهی و دانشجویی هست.
+
+در این پروژه هدف تکنیکال اینست که بتوانیم کلیه ی تیم های دانشجویی را ثبت و ساماندهی کنیم.
+</div>
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
