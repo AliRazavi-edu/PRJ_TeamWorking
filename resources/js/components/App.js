@@ -1,6 +1,6 @@
 import React , { useReducer } from 'react';
 import { BrowserRouter , Route , Switch } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css'
 import loadable from '@loadable/component';
 
 // Import Components
@@ -12,15 +12,10 @@ import TodosContext from './../Context/todos';
 // import Reducers
 import AppReducer from './../Reducers/appReducer';
 
-
-import AsyncComponent from './../AsyncComponent';
-
 // imports Routes
-
 const Home = loadable(() => import('../Routes/Home'))
-const About = loadable(() => import('../Routes/About'))
+const User = loadable(() => import('../Routes/User'))
 const Todo = loadable(() => import('../Routes/Todo'))
-const Contact = loadable(() => import('../Routes/Contact'))
 const NotFound = loadable(() => import('../Routes/NotFound'))
 
 
@@ -41,8 +36,7 @@ function App() {
                     <main>
                         <Switch>
                             <Route path="/home" exact component={Home}/>
-                            <Route path="/about" component={About}/>
-                            <Route path="/contact" component={Contact}/>
+                            <Route path="/user" component={User}/>
                             <Route path="/todos/:todo" component={Todo}/>
                             <Route path="/404" component={NotFound} />
                             <Route component={NotFound} />

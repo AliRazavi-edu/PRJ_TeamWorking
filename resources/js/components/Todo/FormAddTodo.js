@@ -1,6 +1,5 @@
 import React from 'react'
 import TodosContext from './../../Context/todos';
-import todoApi from './../../Api/todos';
 
 class FormAddTodo extends React.Component {
     state = { text : '' }
@@ -11,7 +10,7 @@ class FormAddTodo extends React.Component {
         // ajax
         if(this.state.text.length > 1) {
             let todo = { text : this.state.text , done : false };
-            todoApi.post(`/todos.json` , todo)
+            axios.post(`/todos.json` , todo)
                 .then(response => this.context.dispatch({ type : 'add_todo' , payload : { todo : { ...todo , key : response.data.name } } }))
                 .catch(err => console.log(err))
             //

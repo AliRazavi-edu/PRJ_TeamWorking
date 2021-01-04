@@ -6,16 +6,14 @@ import TodoList from './../Components/Todo/TodoList';
 import TodoConext from './../Context/todos';
 
 
-import todoApi from './../Api/todos';
-
 function Home() {
-   
+
     const [loading , setLoading] = useState();
     const todoContext = useContext(TodoConext);
 
     useEffect(() => {
         setLoading(true);
-        todoApi.get(`/todos.json`)
+        axios.get(`/todos.json`)
             .then(response => jsonHandler(response.data))
             .catch(err => {});
     },[])
@@ -28,10 +26,10 @@ function Home() {
                             return {
                                 ...value,
                                 key
-                            } 
+                            }
                         });
 
-        todoContext.dispatch({ type : 'init_todo' , payload : { todos }})       
+        todoContext.dispatch({ type : 'init_todo' , payload : { todos }})
     }
 
     return (
@@ -47,7 +45,7 @@ function Home() {
                     <div className="container">
                         <div className="d-flex flex-column align-items-center ">
                             {
-                                loading 
+                                loading
                                     ? <h2>Loading data ...</h2>
                                     : (
                                         <TodoList />

@@ -16,16 +16,17 @@ if (!function_exists('userForApi')) {
 
         $userArray = [
             'id'             => $user->id ?? null,
-            'role'             => $user->role ?? null,
+            'role'           => $user->role ?? null,
             'name'           => $user->name ?? null,
             'family'         => $user->family ?? null,
             'full_name'      => $user->full_name ?? null,
             'display_name'   => $user->display_name ?? null,
             'email'          => $user->email ?? null,
             'student_number' => $user->student_number ?? null,
+            'api_token'      => $user->api_token ?? null,
         ];
 
-        if($json)
+        if ($json)
             return addslashes(json_encode($userArray));
 
         return $userArray;

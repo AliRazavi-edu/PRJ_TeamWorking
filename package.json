@@ -23,7 +23,10 @@
     },
     "dependencies": {
         "@loadable/component": "^5.14.1",
+        "bootstrap-v4-rtl": "^4.5.2-1",
+        "react-data-table-component": "^6.11.6",
         "react-router-dom": "^5.2.0",
-        "react-script": "^2.0.5"
+        "react-script": "^2.0.5",
+        "styled-components": "^5.2.1"
     }
 }

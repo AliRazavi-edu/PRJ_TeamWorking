@@ -1,32 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
-/***/ "./resources/js/Api/todos.js":
-/*!***********************************!*\
-  !*** ./resources/js/Api/todos.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var instance = window.axios;
-instance.interceptors.request.use(function (config) {
-  console.log(config);
-  return config;
-}, function (err) {
-  // handle error
-  return Promise.reject(err);
-});
-instance.interceptors.response.use(function (response) {
-  return response;
-}, function (err) {
-  // System log
-  return Promise.reject(err);
-});
-/* harmony default export */ __webpack_exports__["default"] = (instance);
-
-/***/ }),
-
 /***/ "./resources/js/Components/Todo/EditTodo.js":
 /*!**************************************************!*\
   !*** ./resources/js/Components/Todo/EditTodo.js ***!
@@ -95,7 +68,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Context_todos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../Context/todos */ "./resources/js/Context/todos.js");
-/* harmony import */ var _Api_todos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../Api/todos */ "./resources/js/Api/todos.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -123,7 +95,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -163,7 +134,7 @@ var FormAddTodo = /*#__PURE__*/function (_React$Component) {
           text: this.state.text,
           done: false
         };
-        _Api_todos__WEBPACK_IMPORTED_MODULE_2__["default"].post("/todos.json", todo).then(function (response) {
+        axios.post("/todos.json", todo).then(function (response) {
           return _this2.context.dispatch({
             type: 'add_todo',
             payload: {
@@ -231,8 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _EditTodo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditTodo */ "./resources/js/Components/Todo/EditTodo.js");
 /* harmony import */ var _Context_todos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Context/todos */ "./resources/js/Context/todos.js");
-/* harmony import */ var _Api_todos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../Api/todos */ "./resources/js/Api/todos.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -250,7 +220,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function Todo(props) {
   var item = props.item;
 
@@ -262,7 +231,7 @@ function Todo(props) {
   var todosContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_Context_todos__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
   var editHandler = function editHandler(text) {
-    _Api_todos__WEBPACK_IMPORTED_MODULE_3__["default"].put("/todos/".concat(item.key, ".json"), {
+    axios.put("/todos/".concat(item.key, ".json"), {
       done: item.done,
       text: text
     }).then(function (response) {
@@ -280,7 +249,7 @@ function Todo(props) {
   };
 
   var doneHandler = function doneHandler(e) {
-    _Api_todos__WEBPACK_IMPORTED_MODULE_3__["default"].put("/todos/".concat(item.key, ".json"), {
+    axios.put("/todos/".concat(item.key, ".json"), {
       done: !item.done,
       text: item.text
     }).then(function (response) {
@@ -296,8 +265,8 @@ function Todo(props) {
   };
 
   var deleteHandler = function deleteHandler(e) {
-    // ajax 
-    _Api_todos__WEBPACK_IMPORTED_MODULE_3__["default"]["delete"]("/todos/".concat(item.key, ".json")).then(function (response) {
+    // ajax
+    axios["delete"]("/todos/".concat(item.key, ".json")).then(function (response) {
       todosContext.dispatch({
         type: 'delete_todo',
         payload: {
@@ -313,7 +282,7 @@ function Todo(props) {
     className: "col-6 mb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex justify-content-between align-items-center border rounded p-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/todos/".concat(item.key)
   }, item.text)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
@@ -433,7 +402,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Todo_FormAddTodo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Components/Todo/FormAddTodo */ "./resources/js/Components/Todo/FormAddTodo.js");
 /* harmony import */ var _Components_Todo_TodoList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Components/Todo/TodoList */ "./resources/js/Components/Todo/TodoList.js");
 /* harmony import */ var _Context_todos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Context/todos */ "./resources/js/Context/todos.js");
-/* harmony import */ var _Api_todos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Api/todos */ "./resources/js/Api/todos.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -457,7 +425,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function Home() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState2 = _slicedToArray(_useState, 2),
@@ -467,7 +434,7 @@ function Home() {
   var todoContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_Context_todos__WEBPACK_IMPORTED_MODULE_3__["default"]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoading(true);
-    _Api_todos__WEBPACK_IMPORTED_MODULE_4__["default"].get("/todos.json").then(function (response) {
+    axios.get("/todos.json").then(function (response) {
       return jsonHandler(response.data);
     })["catch"](function (err) {});
   }, []);

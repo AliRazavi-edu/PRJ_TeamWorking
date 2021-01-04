@@ -1,32 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
-/***/ "./resources/js/Api/todos.js":
-/*!***********************************!*\
-  !*** ./resources/js/Api/todos.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var instance = window.axios;
-instance.interceptors.request.use(function (config) {
-  console.log(config);
-  return config;
-}, function (err) {
-  // handle error
-  return Promise.reject(err);
-});
-instance.interceptors.response.use(function (response) {
-  return response;
-}, function (err) {
-  // System log
-  return Promise.reject(err);
-});
-/* harmony default export */ __webpack_exports__["default"] = (instance);
-
-/***/ }),
-
 /***/ "./resources/js/Routes/Todo.js":
 /*!*************************************!*\
   !*** ./resources/js/Routes/Todo.js ***!
@@ -39,7 +12,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _Api_todos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Api/todos */ "./resources/js/Api/todos.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -61,7 +33,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function Todo(props) {
   var params = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useParams"])();
   var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
@@ -78,7 +49,7 @@ function Todo(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoading(true);
-    _Api_todos__WEBPACK_IMPORTED_MODULE_2__["default"].get("/todos/".concat(params.todo, ".json")).then(function (response) {
+    axios.get("/todos/".concat(params.todo, ".json")).then(function (response) {
       setLoading(false);
 
       if (response.data) {

@@ -16,6 +16,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string display_name
  * @property string email
  * @property string student_number
+ * @property string api_token
  * Class User
  * @package App\Models
  */
@@ -37,6 +38,7 @@ class User extends Authenticatable
         'email',
         'student_number',
         'password',
+        'api_token',
     ];
 
     /**

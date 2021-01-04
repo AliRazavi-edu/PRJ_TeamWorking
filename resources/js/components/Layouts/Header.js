@@ -16,15 +16,10 @@ function Header() {
                     </a>
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/home" activeStyle={{
-                                color : 'red'
-                            }}>Home</NavLink>
+                            <NavLink className="nav-link" exact to="/home">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/about">About</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/contact">Contact</NavLink>
+                            <NavLink className="nav-link" to="/user">User</NavLink>
                         </li>
                     </ul>
                 </div>

@@ -1,7 +1,6 @@
 import React , { useEffect , useState } from 'react';
 
 import { useParams , useHistory } from 'react-router-dom'
-import todoApi from './../Api/todos';
 
 function Todo(props) {
     const params = useParams();
@@ -12,7 +11,7 @@ function Todo(props) {
 
     useEffect(() => {
         setLoading(true);
-        todoApi.get(`/todos/${params.todo}.json`)
+        axios.get(`/todos/${params.todo}.json`)
             .then(response => {
                 setLoading(false);
                 if(response.data) {
@@ -31,7 +30,7 @@ function Todo(props) {
             <div className="row">
                 <div className="col-12">
                     {
-                        loading 
+                        loading
                             ? <h2>Loading Data ...</h2>
                             : (
                                 <>
