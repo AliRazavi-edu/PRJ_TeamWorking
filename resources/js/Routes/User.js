@@ -43,7 +43,7 @@ function User(props) {
 
     return (
         <DataTable
-            title="users"
+            title="کاربران"
             columns={columns}
             data={pagination.data}
         />

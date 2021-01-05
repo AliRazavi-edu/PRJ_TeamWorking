@@ -1,0 +1,54 @@
+body {
+    font-family: 'Vazir', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Vazir', sans-serif;
+}
+
+.nav-menu a {
+    font-family: 'Vazir', sans-serif;
+}
+
+#hero .btn-get-started {
+    font-family: 'Vazir', sans-serif;
+}
+.about .content .btn-learn-more {
+    font-family: 'Vazir', sans-serif;
+}
+
+.why-us .accordion-list a {
+    font-family: 'Vazir', sans-serif;
+}
+
+.skills .content h3 {
+    font-family: 'Vazir', sans-serif;
+}
+
+.skills .progress .skill {
+    font-family: 'Vazir', sans-serif;
+}
+
+.cta .cta-btn {
+    font-family: 'Vazir', sans-serif;
+}
+
+.portfolio #portfolio-flters li {
+    font-family: 'Vazir', sans-serif;
+}
+
+.pricing h4 {
+    font-family: 'Vazir', sans-serif;
+}
+
+.pricing .buy-btn {
+    font-family: 'Vazir', sans-serif;
+}
+
+.faq .faq-list a {
+    font-family: 'Vazir', sans-serif;
+}
+
+#footer .footer-top .footer-contact p {
+    font-family: 'Vazir', sans-serif;
+}

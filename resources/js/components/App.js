@@ -1,6 +1,8 @@
 import React , { useReducer } from 'react';
 import { BrowserRouter , Route , Switch } from 'react-router-dom';
-import 'bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css'
+import 'bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css';
+import '../../../public/assets/css/fonts.css';
+
 import loadable from '@loadable/component';
 
 // Import Components

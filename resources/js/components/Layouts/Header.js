@@ -8,20 +8,22 @@ function Header() {
     const todosContext = useContext(TodosContext);
 
     return (
+
         <header>
             <div className="navbar navbar-dark navbar-expand-md bg-dark shadow-sm">
                 <div className="container d-flex justify-content-between">
-                    <a href="#" className="navbar-brand d-flex align-items-center">
-                        <strong>Todo App</strong>
-                    </a>
+
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/home">Home</NavLink>
+                            <NavLink className="nav-link" exact to="/home">خانه</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/user">User</NavLink>
+                            <NavLink className="nav-link" to="/user">کاربران</NavLink>
                         </li>
                     </ul>
+                    <a href="/" className="navbar-brand d-flex align-items-center">
+                        <strong>{laravel.env.name}</strong>
+                    </a>
                 </div>
             </div>
         </header>

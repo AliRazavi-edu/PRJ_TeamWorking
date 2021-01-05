@@ -9,11 +9,16 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Favicons -->
+    <link href="assets/img/favicon.ico" rel="icon">
+
 </head>
 <body>
-<div>
+
+<main id="main">
     @yield('content')
-</div>
+</main>
+
 @yield('scripts')
 </body>
 </html>

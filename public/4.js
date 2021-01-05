@@ -68,7 +68,7 @@ function User(props) {
     sortable: true
   }];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_data_table_component__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    title: "users",
+    title: "\u06A9\u0627\u0631\u0628\u0631\u0627\u0646",
     columns: columns,
     data: pagination.data
   });

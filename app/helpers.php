@@ -32,3 +32,14 @@ if (!function_exists('userForApi')) {
         return $userArray;
     }
 }
+
+if (!function_exists('routeIs')) {
+
+    function routeIs($names, $currentRoute = null)
+    {
+        if (is_null($currentRoute))
+            $currentRoute = \Illuminate\Support\Facades\Route::currentRouteName();
+
+        return \Illuminate\Support\Str::contains($currentRoute, $names);
+    }
+}
