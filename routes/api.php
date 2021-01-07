@@ -15,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->prefix('v1')->namespace('V1')->group(function () {
-    Route::resource('user', 'UserController');
+    Route::resource('admin/user', 'UserController');
+
+    Route::get('study-fields', 'HomeController@getStudyFildes');
 });

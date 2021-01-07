@@ -60,19 +60,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function teachers()
-    {
-        return $this->belongsToMany(Teacher::class,'user_teacher');
-    }
-
     public function lessons()
     {
-        return $this->belongsToMany(Lesson::class,'user_lesson');
+        return $this->belongsToMany(Lesson::class, 'user_lesson');
     }
 
-    public function studyFields()
+    public function scopeUserRole($query)
     {
-        return $this->belongsToMany(StudyField::class,'user_study_field');
+        return $query->where('role', 'user');
+    }
+
+    public function scopeAdminRole($query)
+    {
+        return $query->where('role', 'admin');
     }
 
     public function getFullNameAttribute()

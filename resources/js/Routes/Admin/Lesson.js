@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function Contact(props) {
+function Lesson(props) {
     return (
         <h2>Contact page</h2>
     )
 }
 
-export default Contact;
+export default Lesson;

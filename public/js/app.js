@@ -36429,71 +36429,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _public_assets_css_fonts_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_public_assets_css_fonts_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @loadable/component */ "./node_modules/@loadable/component/dist/loadable.esm.js");
 /* harmony import */ var _Layouts_Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Layouts/Header */ "./resources/js/Components/Layouts/Header.js");
-/* harmony import */ var _Context_todos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Context/todos */ "./resources/js/Context/todos.js");
-/* harmony import */ var _Reducers_appReducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Reducers/appReducer */ "./resources/js/Reducers/appReducer.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
 
  // Import Components
 
- // impor Contexts
-
- // import Reducers
-
  // imports Routes
 
 var Home = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../Routes/Home */ "./resources/js/Routes/Home.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../Routes/Home */ "./resources/js/Routes/Home.js"));
+});
+var Admin = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Routes/Admin */ "./resources/js/Routes/Admin.js"));
 });
 var User = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../Routes/User */ "./resources/js/Routes/User.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../Routes/Admin/User */ "./resources/js/Routes/Admin/User.js"));
 });
-var Todo = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Routes/Todo */ "./resources/js/Routes/Todo.js"));
+var Teacher = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Teacher */ "./resources/js/Routes/Admin/Teacher.js"));
+});
+var StudyField = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../Routes/Admin/StudyField */ "./resources/js/Routes/Admin/StudyField.js"));
+});
+var Lesson = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Lesson */ "./resources/js/Routes/Admin/Lesson.js"));
 });
 var NotFound = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../Routes/NotFound */ "./resources/js/Routes/NotFound.js"));
+  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../Routes/NotFound */ "./resources/js/Routes/NotFound.js"));
 });
 
 function App() {
-  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_Reducers_appReducer__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    todos: []
-  }),
-      _useReducer2 = _slicedToArray(_useReducer, 2),
-      state = _useReducer2[0],
-      dispatch = _useReducer2[1];
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Context_todos__WEBPACK_IMPORTED_MODULE_6__["default"].Provider, {
-    value: {
-      todos: state.todos,
-      dispatch: dispatch
+  var renderAdminRoutes = function renderAdminRoutes() {
+    if (laravel.user.role != 'admin') {
+      return null;
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      path: "/admin",
+      exact: true,
+      component: Admin
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      path: "/admin/user",
+      exact: true,
+      component: User
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      path: "/admin/teacher",
+      component: Teacher
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      path: "/admin/field",
+      component: StudyField
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      path: "/admin/lesson",
+      component: Lesson
+    }));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "App"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layouts_Header__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layouts_Header__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container rtl"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/home",
     exact: true,
     component: Home
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: "/user",
-    component: User
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: "/todos/:todo",
-    component: Todo
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }), renderAdminRoutes(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/404",
     component: NotFound
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -36516,14 +36516,11 @@ function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Context_todos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Context/todos */ "./resources/js/Context/todos.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
 function Header() {
-  var todosContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_Context_todos__WEBPACK_IMPORTED_MODULE_1__["default"]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar navbar-dark navbar-expand-md bg-dark shadow-sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -36532,149 +36529,22 @@ function Header() {
     className: "navbar-nav mr-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     className: "nav-link",
     exact: true,
     to: "/home"
-  }, "\u062E\u0627\u0646\u0647")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, "\u062E\u0627\u0646\u0647")), laravel.user.role == 'admin' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     className: "nav-link",
-    to: "/user"
-  }, "\u06A9\u0627\u0631\u0628\u0631\u0627\u0646"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    to: "/admin"
+  }, "\u0645\u062F\u06CC\u0631\u06CC\u062A")) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/",
     className: "navbar-brand d-flex align-items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, laravel.env.name)))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
-
-/***/ }),
-
-/***/ "./resources/js/Context/todos.js":
-/*!***************************************!*\
-  !*** ./resources/js/Context/todos.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var todosContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({
-  todos: [],
-  add: function add() {},
-  edit: function edit() {},
-  done: function done() {},
-  "delete": function _delete() {}
-});
-/* harmony default export */ __webpack_exports__["default"] = (todosContext);
-
-/***/ }),
-
-/***/ "./resources/js/Reducers/appReducer.js":
-/*!*********************************************!*\
-  !*** ./resources/js/Reducers/appReducer.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function AppReducer(state, action) {
-  console.log(state, action);
-
-  switch (action.type) {
-    case 'init_todo':
-      var todos = action.payload.todos;
-      return _objectSpread(_objectSpread({}, state), {}, {
-        todos: todos
-      });
-
-    case 'add_todo':
-      return addTodo(state, action);
-
-    case 'delete_todo':
-      return deleteTodo(state, action);
-
-    case 'toggle_todo':
-      return toggleTodo(state, action);
-
-    case 'edit_todo':
-      return editTodo(state, action);
-
-    default:
-      return state;
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (AppReducer);
-
-var addTodo = function addTodo(state, action) {
-  var todo = action.payload.todo;
-  return _objectSpread(_objectSpread({}, state), {}, {
-    todos: [].concat(_toConsumableArray(state.todos), [todo])
-  });
-};
-
-var deleteTodo = function deleteTodo(state, action) {
-  var key = action.payload.key;
-  return _objectSpread(_objectSpread({}, state), {}, {
-    todos: state.todos.filter(function (item) {
-      return item.key !== key;
-    })
-  });
-};
-
-var toggleTodo = function toggleTodo(state, action) {
-  var key = action.payload.key;
-  var item = state.todos.find(function (item) {
-    return item.key === key;
-  });
-  item.done = !item.done;
-  var newTodos = state.todos.filter(function (item) {
-    return item.key !== key;
-  });
-  return _objectSpread(_objectSpread({}, state), {}, {
-    todos: [].concat(_toConsumableArray(newTodos), [item])
-  });
-};
-
-var editTodo = function editTodo(state, action) {
-  var _action$payload = action.payload,
-      key = _action$payload.key,
-      text = _action$payload.text;
-  var item = state.todos.find(function (item) {
-    return item.key === key;
-  });
-  item.text = text;
-  var newTodos = state.todos.filter(function (item) {
-    return item.key !== key;
-  });
-  return _objectSpread(_objectSpread({}, state), {}, {
-    todos: [].concat(_toConsumableArray(newTodos), [item])
-  });
-};
 
 /***/ }),
 

@@ -1,5 +1,5 @@
-import React , { useReducer } from 'react';
-import { BrowserRouter , Route , Switch } from 'react-router-dom';
+import React, {useReducer} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import 'bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css';
 import '../../../public/assets/css/fonts.css';
 
@@ -8,44 +8,52 @@ import loadable from '@loadable/component';
 // Import Components
 import Header from './Layouts/Header';
 
-// impor Contexts
-import TodosContext from './../Context/todos';
-
-// import Reducers
-import AppReducer from './../Reducers/appReducer';
-
 // imports Routes
 const Home = loadable(() => import('../Routes/Home'))
-const User = loadable(() => import('../Routes/User'))
-const Todo = loadable(() => import('../Routes/Todo'))
+const Admin = loadable(() => import('../Routes/Admin'))
+const User = loadable(() => import('../Routes/Admin/User'))
+const Teacher = loadable(() => import('../Routes/Admin/Teacher'))
+const StudyField = loadable(() => import('../Routes/Admin/StudyField'))
+const Lesson = loadable(() => import('../Routes/Admin/Lesson'))
 const NotFound = loadable(() => import('../Routes/NotFound'))
 
 
 function App() {
 
-    const [state , dispatch] = useReducer(AppReducer , {
-        todos : [],
-    })
+    let renderAdminRoutes = function () {
+        if(laravel.user.role != 'admin'){
+            return null;
+        }
 
+        return (
+            <>
+                <Route path="/admin" exact component={Admin}/>
+                <Route path="/admin/user" exact component={User}/>
+                <Route path="/admin/teacher" component={Teacher}/>
+                <Route path="/admin/field" component={StudyField}/>
+                <Route path="/admin/lesson" component={Lesson}/>
+            </>
+        );
+    }
     return (
         <BrowserRouter>
-            <TodosContext.Provider value={{
-                todos: state.todos,
-                dispatch
-            }}>
                 <div className="App">
-                    <Header />
-                    <main>
-                        <Switch>
-                            <Route path="/home" exact component={Home}/>
-                            <Route path="/user" component={User}/>
-                            <Route path="/todos/:todo" component={Todo}/>
-                            <Route path="/404" component={NotFound} />
-                            <Route component={NotFound} />
-                        </Switch>
-                    </main>
+                    <Header/>
+                    <div className="container rtl">
+                        <main>
+                            <Switch>
+
+                                <Route path="/home" exact component={Home}/>
+                                {/*<Route path="/todos/:todo" component={Todo}/>*/}
+
+                                {renderAdminRoutes()}
+
+                                <Route path="/404" component={NotFound}/>
+                                <Route component={NotFound}/>
+                            </Switch>
+                        </main>
+                    </div>
                 </div>
-            </TodosContext.Provider>
         </BrowserRouter>
     )
 }

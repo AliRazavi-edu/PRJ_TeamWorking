@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserStudyFieldTable extends Migration
+class CreateStudyFieldTeacherTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateUserStudyFieldTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_study_field', function (Blueprint $table) {
+        Schema::create('study_field_teacher', function (Blueprint $table) {
+            $table->primary(['study_field_id', 'teacher_id']);
 
-            $table->primary(['user_id', 'study_field_id']);
-
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('study_field_id');
+            $table->unsignedBigInteger('teacher_id');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('study_field_id')->references('id')->on('study_fields')->onDelete('cascade');
-
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateUserStudyFieldTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_study_field');
+        Schema::dropIfExists('study_field_teacher');
     }
 }

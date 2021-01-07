@@ -42,11 +42,21 @@ function User(props) {
     ];
 
     return (
-        <DataTable
-            title="کاربران"
-            columns={columns}
-            data={pagination.data}
-        />
+        <>
+            <div className="todosList">
+                <div className="container">
+                    <div className="d-flex flex-column align-items-center ">
+                        {
+                            <DataTable
+                                title="کاربران"
+                                columns={columns}
+                                data={pagination.data}
+                            />
+                        }
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
 

@@ -1,11 +1,8 @@
 import React , { useContext } from 'react';
-import TodosContext from '../../Context/todos';
 
 import { NavLink } from 'react-router-dom';
 
 function Header() {
-
-    const todosContext = useContext(TodosContext);
 
     return (
 
@@ -17,9 +14,14 @@ function Header() {
                         <li className="nav-item">
                             <NavLink className="nav-link" exact to="/home">خانه</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/user">کاربران</NavLink>
-                        </li>
+                        {
+                            laravel.user.role == 'admin'
+                            ? (<li className="nav-item">
+                            <NavLink className="nav-link" to="/admin">مدیریت</NavLink>
+                            </li>)
+                            : null
+                        }
+
                     </ul>
                     <a href="/" className="navbar-brand d-flex align-items-center">
                         <strong>{laravel.env.name}</strong>

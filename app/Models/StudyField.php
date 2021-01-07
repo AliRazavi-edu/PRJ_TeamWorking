@@ -9,8 +9,8 @@ class StudyField extends Model
 {
     use HasFactory;
 
-    public function users()
+    public function teachers()
     {
-        return $this->belongsToMany(User::class,'user_study_field');
+        return $this->belongsToMany(Teacher::class,'study_field_teacher');
     }
 }

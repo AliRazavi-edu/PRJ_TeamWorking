@@ -15,9 +15,7 @@
 </head>
 <body>
 
-<main id="main">
-    @yield('content')
-</main>
+@yield('content')
 
 @yield('scripts')
 </body>

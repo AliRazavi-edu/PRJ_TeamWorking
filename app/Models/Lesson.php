@@ -9,6 +9,11 @@ class Lesson extends Model
 {
     use HasFactory;
 
+    public function teachers()
+    {
+        return $this->belongsToMany(Teacher::class,'teacher_lesson');
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class,'user_lesson');

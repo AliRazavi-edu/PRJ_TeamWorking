@@ -1,59 +1,59 @@
-import React , { useState , useEffect , useContext } from 'react';
-
-import FormAddTodo from './../Components/Todo/FormAddTodo';
-import TodoList from './../Components/Todo/TodoList';
-
-import TodoConext from './../Context/todos';
+import React, {useEffect, useState} from 'react';
+import HomeCard from "../components/HomeCard";
+import LoadingOverlay from 'react-loading-overlay';
 
 
 function Home() {
+    const [loading, setLoading] = useState();
+    const [fields, setField] = useState([]);
 
-    const [loading , setLoading] = useState();
-    const todoContext = useContext(TodoConext);
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`/todos.json`)
+        axios.get(`/study-fields`)
             .then(response => jsonHandler(response.data))
-            .catch(err => {});
-    },[])
+            .catch(err => {
+            });
+    }, [])
 
     let jsonHandler = (data) => {
-        setLoading(false)
-        let todos =  Object
-                        .entries(data)
-                        .map(([key , value]) => {
-                            return {
-                                ...value,
-                                key
-                            }
-                        });
-
-        todoContext.dispatch({ type : 'init_todo' , payload : { todos }})
+        setField(data)
+        setLoading(false);
     }
 
+    let renderLessons = function () {
+        if (fields.length == 0) {
+            return <div className="alert alert-danger">هنوز درسی ثبت نشده</div>
+        }
+
+        return fields.map(function (item) {
+            return (
+                <div className="col-md-4 text-center" key={item.id}>
+                    <HomeCard
+                        img='https://picsum.photos/id/54/400/300'
+                        title={item.name}
+                        link={`/study-field/${item.id}`}
+                    />
+                </div>
+            )
+        })
+    }
     return (
         <>
-            <section className="jumbotron">
-                <div className="container d-flex flex-column align-items-center">
-                    <h1 className="jumbotron-heading">Welcome!</h1>
-                    <p className="lead text-muted">To get started, add some items to your list:</p>
-                    <FormAddTodo />
+            <LoadingOverlay
+                active={loading}
+                spinner
+                text='در حال بارگزاری...!'
+            >
+                <div className="alert alert-info">لطفا یکی از دروسی که در آن حضور دارید را انتخاب کنید</div>
+                <div className="row">
+                    {
+                        renderLessons()
+                    }
                 </div>
-            </section>
-            <div className="todosList">
-                    <div className="container">
-                        <div className="d-flex flex-column align-items-center ">
-                            {
-                                loading
-                                    ? <h2>Loading data ...</h2>
-                                    : (
-                                        <TodoList />
-                                    )
-                            }
-                        </div>
-                    </div>
-            </div>
+            </LoadingOverlay>
+
+
         </>
     )
 }
