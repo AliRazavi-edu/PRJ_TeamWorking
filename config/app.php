@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Larabookir\Gateway\GatewayServiceProvider::class,
 
         /*
          * Application Service Providers...
