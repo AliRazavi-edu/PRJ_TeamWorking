@@ -19,6 +19,10 @@ class UserSeeder extends Seeder
             $this->call([LessonSeeder::class]);
 
         User::factory(20)->create()->each(function ($record) {
+            /** @var User $record */
+
+            if ($record->is_admin)
+                return;
 
             $lessonIds = Lesson::query()
                 ->inRandomOrder()
@@ -27,8 +31,14 @@ class UserSeeder extends Seeder
                 ->pluck('id')
                 ->toArray();
 
-            /** @var User $record */
-            $record->lessons()->syncWithoutDetaching($lessonIds);
+            if ($record->is_teacher) {
+                /** @var User $record */
+                $record->teacherLessons()->syncWithoutDetaching($lessonIds);
+            } elseif ($record->is_user) {
+                /** @var User $record */
+                $record->lessons()->syncWithoutDetaching($lessonIds);
+            }
+
         });
     }
 }

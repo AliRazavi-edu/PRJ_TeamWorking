@@ -20,7 +20,7 @@ class CreateStudyFieldTeacherTable extends Migration
             $table->unsignedBigInteger('teacher_id');
 
             $table->foreign('study_field_id')->references('id')->on('study_fields')->onDelete('cascade');
-            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

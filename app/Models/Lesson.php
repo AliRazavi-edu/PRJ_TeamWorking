@@ -23,7 +23,7 @@ class Lesson extends Model
 
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class, 'teacher_lesson');
+        return $this->belongsToMany(User::class, 'teacher_lesson','lesson_id','teacher_id');
     }
 
     public function users()

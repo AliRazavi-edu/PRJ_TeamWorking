@@ -10,20 +10,21 @@ function Home() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`/study-fields`)
+        axios.get(`/lessons`)
             .then(response => jsonHandler(response.data))
             .catch(err => {
             });
     }, [])
 
     let jsonHandler = (data) => {
+        console.log(data);
         setField(data)
         setLoading(false);
     }
 
     let renderLessons = function () {
         if (fields.length == 0) {
-            return <div className="alert alert-danger">هنوز درسی ثبت نشده</div>
+            return <div className="alert alert-danger">هنوز درسی ثبت نشده یا شما به آن اضافه نشده اید</div>
         }
 
         return fields.map(function (item) {
@@ -32,7 +33,8 @@ function Home() {
                     <HomeCard
                         img='https://picsum.photos/id/54/400/300'
                         title={item.name}
-                        link={`/study-field/${item.id}`}
+                        description={item.description}
+                        link={`/lesson/${item.id}`}
                     />
                 </div>
             )
@@ -45,15 +47,20 @@ function Home() {
                 spinner
                 text='در حال بارگزاری...!'
             >
-                <div className="alert alert-info">لطفا یکی از دروسی که در آن حضور دارید را انتخاب کنید</div>
                 <div className="row">
+                    <div className="col-md-12 mt-3 mb-2">
+                        <div className="jumbotron text-center">
+                            <h1 className="display-4">خوش آمدید!</h1>
+                            <p className="lead">در این قسمت درس ها نمایش داده می شود</p>
+                            <hr className="my-4" />
+                            <p>برای مشاهده و شرکت در گروه بندی، یکی از درس های زیر را انتخاب کنید.</p>
+                        </div>
+                    </div>
                     {
                         renderLessons()
                     }
                 </div>
             </LoadingOverlay>
-
-
         </>
     )
 }

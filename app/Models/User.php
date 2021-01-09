@@ -17,6 +17,9 @@ use Illuminate\Notifications\Notifiable;
  * @property string email
  * @property string student_number
  * @property string api_token
+ * @property boolean is_teacher
+ * @property boolean is_admin
+ * @property boolean is_user
  * Class User
  * @package App\Models
  */
@@ -60,6 +63,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function teacherLessons()
+    {
+        return $this->belongsToMany(Lesson::class, 'teacher_lesson','teacher_id');
+    }
+
     public function lessons()
     {
         return $this->belongsToMany(Lesson::class, 'user_lesson');
@@ -81,6 +89,26 @@ class User extends Authenticatable
     public function scopeAdminRole($query)
     {
         return $query->where('role', 'admin');
+    }
+
+    public function scopeTeacherRole($query)
+    {
+        return $query->where('role', 'teacher');
+    }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->role == 'admin';
+    }
+
+    public function getIsUserAttribute()
+    {
+        return $this->role == 'user';
+    }
+
+    public function getIsTeacherAttribute()
+    {
+        return $this->role == 'teacher';
     }
 
     public function getFullNameAttribute()

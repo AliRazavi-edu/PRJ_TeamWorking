@@ -31,7 +31,8 @@ function App() {
                 <Route path="/admin/user" exact component={User}/>
                 <Route path="/admin/teacher" component={Teacher}/>
                 <Route path="/admin/field" component={StudyField}/>
-                <Route path="/admin/lesson" component={Lesson}/>
+                <Route path="/admin/lesson" exact component={Lesson}/>
+                <Route path="/admin/lesson/:lesson" component={Lesson}/>
             </>
         );
     }

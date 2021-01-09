@@ -23,7 +23,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'role'              => $this->faker->randomElement(['admin', 'user']),
+            'role'              => $this->faker->randomElement(['admin', 'user','teacher']),
             'name'              => $this->faker->name,
             'family'            => $this->faker->name,
             'student_number'    => $this->faker->unique()->randomNumber(5),

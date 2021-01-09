@@ -22,7 +22,8 @@ class LessonFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->words(rand(1,3),true),
+            'name' => $this->faker->words(rand(1, 3), true),
+            'description' => $this->faker->sentences(rand(1, 3), true),
         ];
     }
 }

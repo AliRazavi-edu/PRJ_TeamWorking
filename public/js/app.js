@@ -2757,6 +2757,44 @@ exports.push([module.i, "@font-face {\r\n    font-family: Vazir;\r\n    src: url
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/404.css":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./resources/css/404.css ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nbody\n{\n    background-color:#141019;\n    background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;\n}\n\n\n#handboy\n{\n    animation: swing ease-in-out 1.3s infinite alternate;\n    transform-origin: 98% 98%;\n    transform-box: fill-box;\n\n}\n\n\n#girllight\n{\n    animation: swing ease-in-out 1.3s infinite alternate;\n    transform-origin: 0% 97%;\n    transform-box: fill-box;\n}\n\n#hairgirl\n{\n    animation: swinghair ease-in-out 1.3s infinite alternate;\n    transform-origin: 60% 0%;\n    transform-box: fill-box;\n\n}\n\n#zero\n{\n    transform-origin:bottom;\n    transform-box:fill-box;\n\n}\n\n/*************swing************/\n@keyframes swing {\n    0% { transform: rotate(10deg); }\n    100% { transform: rotate(-10deg); }\n}\n\n\n/*************swing hair************/\n@keyframes swinghair {\n    0% { transform: rotate(6deg); }\n    100% { transform: rotate(-6deg); }\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/app.css":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./resources/css/app.css ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\n    font-family: \"Vazir\";\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/lib/css-base.js":
 /*!*************************************************!*\
   !*** ./node_modules/css-loader/lib/css-base.js ***!
@@ -36411,6 +36449,66 @@ module.exports = "/fonts/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932
 
 /***/ }),
 
+/***/ "./resources/css/404.css":
+/*!*******************************!*\
+  !*** ./resources/css/404.css ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--5-1!../../node_modules/postcss-loader/src??ref--5-2!./404.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/404.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--5-1!../../node_modules/postcss-loader/src??ref--5-2!./app.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/app.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/Components/App.js":
 /*!****************************************!*\
   !*** ./resources/js/Components/App.js ***!
@@ -36444,19 +36542,19 @@ var Admin = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(
   return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Routes/Admin */ "./resources/js/Routes/Admin.js"));
 });
 var User = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../Routes/Admin/User */ "./resources/js/Routes/Admin/User.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../Routes/Admin/User */ "./resources/js/Routes/Admin/User.js"));
 });
 var Teacher = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Teacher */ "./resources/js/Routes/Admin/Teacher.js"));
+  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Teacher */ "./resources/js/Routes/Admin/Teacher.js"));
 });
 var StudyField = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../Routes/Admin/StudyField */ "./resources/js/Routes/Admin/StudyField.js"));
+  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../Routes/Admin/StudyField */ "./resources/js/Routes/Admin/StudyField.js"));
 });
 var Lesson = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Lesson */ "./resources/js/Routes/Admin/Lesson.js"));
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Lesson */ "./resources/js/Routes/Admin/Lesson.js"));
 });
 var NotFound = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../Routes/NotFound */ "./resources/js/Routes/NotFound.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../Routes/NotFound */ "./resources/js/Routes/NotFound.js"));
 });
 
 function App() {
@@ -36481,6 +36579,10 @@ function App() {
       component: StudyField
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
       path: "/admin/lesson",
+      exact: true,
+      component: Lesson
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      path: "/admin/lesson/:lesson",
       component: Lesson
     }));
   };
@@ -36565,6 +36667,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./serviceWorker */ "./resources/js/serviceWorker.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _css_404_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../css/404.css */ "./resources/css/404.css");
+/* harmony import */ var _css_404_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_css_404_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_6__);
+
+
 
 
 

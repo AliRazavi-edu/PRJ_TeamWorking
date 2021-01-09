@@ -11,6 +11,6 @@ class StudyField extends Model
 
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class,'study_field_teacher');
+        return $this->belongsToMany(User::class,'study_field_teacher','study_field_id','teacher_id');
     }
 }
