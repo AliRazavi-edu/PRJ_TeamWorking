@@ -22,7 +22,7 @@ class StudyFieldFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->words(rand(1,3)),
         ];
     }
 }

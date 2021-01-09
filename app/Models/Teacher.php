@@ -5,9 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property string name
+ *
+ * Class Teacher
+ * @package App\Models
+ */
 class Teacher extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+      'name'
+    ];
 
     public function studyFields()
     {
