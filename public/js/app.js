@@ -36538,23 +36538,23 @@ __webpack_require__.r(__webpack_exports__);
 var Home = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
   return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../Routes/Home */ "./resources/js/Routes/Home.js"));
 });
+var Lesson = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../Routes/Lesson */ "./resources/js/Routes/Lesson.js"));
+});
 var Admin = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
   return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Routes/Admin */ "./resources/js/Routes/Admin.js"));
 });
-var User = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../Routes/Admin/User */ "./resources/js/Routes/Admin/User.js"));
+var AdminUser = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ../Routes/Admin/User */ "./resources/js/Routes/Admin/User.js"));
 });
-var Teacher = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Teacher */ "./resources/js/Routes/Admin/Teacher.js"));
-});
-var StudyField = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+var AdminStudyField = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
   return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../Routes/Admin/StudyField */ "./resources/js/Routes/Admin/StudyField.js"));
 });
-var Lesson = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+var AdminLesson = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
   return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../Routes/Admin/Lesson */ "./resources/js/Routes/Admin/Lesson.js"));
 });
 var NotFound = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../Routes/NotFound */ "./resources/js/Routes/NotFound.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../Routes/NotFound */ "./resources/js/Routes/NotFound.js"));
 });
 
 function App() {
@@ -36570,20 +36570,14 @@ function App() {
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
       path: "/admin/user",
       exact: true,
-      component: User
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-      path: "/admin/teacher",
-      component: Teacher
+      component: AdminUser
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
       path: "/admin/field",
-      component: StudyField
+      component: AdminStudyField
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
       path: "/admin/lesson",
       exact: true,
-      component: Lesson
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-      path: "/admin/lesson/:lesson",
-      component: Lesson
+      component: AdminLesson
     }));
   };
 
@@ -36595,6 +36589,9 @@ function App() {
     path: "/home",
     exact: true,
     component: Home
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/lesson/:lesson",
+    component: Lesson
   }), renderAdminRoutes(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/404",
     component: NotFound

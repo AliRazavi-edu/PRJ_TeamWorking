@@ -20,6 +20,7 @@ class CreateGroupUserTable extends Migration
             $table->unsignedBigInteger('group_id');
 
             $table->boolean('is_leader')->default(false);
+            $table->boolean('is_final')->default(false);
 
             $table->timestamp('joined_at')->useCurrent();
 

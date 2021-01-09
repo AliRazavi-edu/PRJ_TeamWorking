@@ -44,6 +44,10 @@ class User extends Authenticatable
         'api_token',
     ];
 
+    protected $appends = [
+        'full_name', 'display_name'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -65,7 +69,7 @@ class User extends Authenticatable
 
     public function teacherLessons()
     {
-        return $this->belongsToMany(Lesson::class, 'teacher_lesson','teacher_id');
+        return $this->belongsToMany(Lesson::class, 'teacher_lesson', 'teacher_id');
     }
 
     public function lessons()
@@ -76,7 +80,7 @@ class User extends Authenticatable
     public function groups()
     {
         return $this->belongsToMany(Group::class, 'group_user')
-            ->withPivot(['is_leader'])
+            ->withPivot(['is_leader','is_final'])
             ->withTimestamps(['joined_at']);
     }
 
@@ -133,5 +137,10 @@ class User extends Authenticatable
             default:
                 return null;
         }
+    }
+
+    public function isLessonBelongsToUser(Lesson $lesson)
+    {
+        return $this->lessons()->where('id', $lesson->id)->exists();
     }
 }
