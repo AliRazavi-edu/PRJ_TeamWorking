@@ -18,21 +18,11 @@ class Lesson extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description'
+        'name'
     ];
 
-    public function teachers()
+    public function courses()
     {
-        return $this->belongsToMany(User::class, 'teacher_lesson','lesson_id','teacher_id');
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_lesson');
-    }
-
-    public function groups()
-    {
-        return $this->hasMany(Group::class);
+        return $this->hasMany(Course::class);
     }
 }

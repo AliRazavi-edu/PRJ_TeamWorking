@@ -5,36 +5,37 @@ import LoadingOverlay from 'react-loading-overlay';
 
 function Home() {
     const [loading, setLoading] = useState();
-    const [fields, setField] = useState([]);
+    const [courses, setCourses] = useState([]);
 
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`/lessons`)
+        axios.get(`/courses`)
             .then(response => jsonHandler(response.data))
             .catch(err => {
             });
     }, [])
 
     let jsonHandler = (data) => {
-        console.log(data);
-        setField(data)
+        setCourses(data)
         setLoading(false);
     }
 
     let renderLessons = function () {
-        if (fields.length == 0) {
+        if (courses.length == 0) {
             return <div className="alert alert-danger">هنوز درسی ثبت نشده یا شما به آن اضافه نشده اید</div>
         }
 
-        return fields.map(function (item) {
+        return courses.map(function (item) {
             return (
                 <div className="col-md-4 text-center" key={item.id}>
                     <HomeCard
                         img='https://picsum.photos/id/54/400/300'
-                        title={item.name}
-                        description={item.description}
-                        link={`/lesson/${item.id}`}
+                        title={item.lesson}
+                        studyField={item.study_field}
+                        teacher={item.teacher}
+                        semester={item.title}
+                        link={`/course/${item.id}`}
                     />
                 </div>
             )

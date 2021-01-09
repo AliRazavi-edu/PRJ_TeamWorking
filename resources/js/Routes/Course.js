@@ -3,7 +3,7 @@ import HomeCard from "../components/HomeCard";
 import LoadingOverlay from 'react-loading-overlay';
 
 
-function Lesson(props) {
+function Course(props) {
 
     let lessonId = props.match.params.lesson;
 
@@ -15,7 +15,7 @@ function Lesson(props) {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`/lesson/${lessonId}/show`)
+        axios.get(`/course/${lessonId}/show`)
             .then(response => jsonHandler(response.data))
             .catch(err => {
             });
@@ -42,4 +42,4 @@ function Lesson(props) {
     )
 }
 
-export default Lesson;
+export default Course;

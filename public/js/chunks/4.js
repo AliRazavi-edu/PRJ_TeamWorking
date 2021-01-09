@@ -87,38 +87,39 @@ function Home() {
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState4 = _slicedToArray(_useState3, 2),
-      fields = _useState4[0],
-      setField = _useState4[1];
+      courses = _useState4[0],
+      setCourses = _useState4[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoading(true);
-    axios.get("/lessons").then(function (response) {
+    axios.get("/courses").then(function (response) {
       return jsonHandler(response.data);
     })["catch"](function (err) {});
   }, []);
 
   var jsonHandler = function jsonHandler(data) {
-    console.log(data);
-    setField(data);
+    setCourses(data);
     setLoading(false);
   };
 
   var renderLessons = function renderLessons() {
-    if (fields.length == 0) {
+    if (courses.length == 0) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alert alert-danger"
       }, "\u0647\u0646\u0648\u0632 \u062F\u0631\u0633\u06CC \u062B\u0628\u062A \u0646\u0634\u062F\u0647 \u06CC\u0627 \u0634\u0645\u0627 \u0628\u0647 \u0622\u0646 \u0627\u0636\u0627\u0641\u0647 \u0646\u0634\u062F\u0647 \u0627\u06CC\u062F");
     }
 
-    return fields.map(function (item) {
+    return courses.map(function (item) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-4 text-center",
         key: item.id
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
         img: "https://picsum.photos/id/54/400/300",
-        title: item.name,
-        description: item.description,
-        link: "/lesson/".concat(item.id)
+        title: item.lesson,
+        studyField: item.study_field,
+        teacher: item.teacher,
+        semester: item.title,
+        link: "/course/".concat(item.id)
       }));
     });
   };
@@ -213,9 +214,13 @@ var HomeCard = /*#__PURE__*/function (_Component) {
         src: this.props.img
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "card-title"
-      }, this.props.title), this.props.description ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "card-text"
-      }, this.props.description) : null))));
+      }, "\u0631\u0634\u062A\u0647: ", this.props.studyField), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, "\u0627\u0633\u062A\u0627\u062F: ", this.props.teacher), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, "\u062F\u0648\u0631\u0647: ", this.props.semester)))));
     }
   }]);
 

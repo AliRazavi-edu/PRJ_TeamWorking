@@ -24,15 +24,4 @@ class Group extends Model
         'limit'
     ];
 
-    public function lesson()
-    {
-        return $this->belongsTo(Lesson::class);
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'group_user')
-            ->withPivot(['is_leader','is_final'])
-            ->withTimestamps(['joined_at']);
-    }
 }

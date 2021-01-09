@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Lesson;
+use App\Models\Model;
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LessonFactory extends Factory
+class TeacherFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Lesson::class;
+    protected $model = Teacher::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +23,7 @@ class LessonFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->words(rand(1,3),true),
+            'name' => $this->faker->name,
         ];
     }
 }

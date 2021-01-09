@@ -13,11 +13,10 @@ class HomeCard extends Component {
                                 <img className="img-fluid" src={this.props.img}/>
                             </p>
                             <h4 className="card-title">{this.props.title}</h4>
-                            {
-                                this.props.description
-                                    ? <p className="card-text">{this.props.description}</p>
-                                    : null
-                            }
+                            <p className="card-text">رشته: {this.props.studyField}</p>
+                            <p className="card-text">استاد: {this.props.teacher}</p>
+                            <p className="card-text">دوره: {this.props.semester}</p>
+
                         </div>
                     </div>
                 </div>

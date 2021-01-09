@@ -17,7 +17,6 @@ use Illuminate\Notifications\Notifiable;
  * @property string email
  * @property string student_number
  * @property string api_token
- * @property boolean is_teacher
  * @property boolean is_admin
  * @property boolean is_user
  * Class User
@@ -67,23 +66,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function teacherLessons()
+    public function courses()
     {
-        return $this->belongsToMany(Lesson::class, 'teacher_lesson', 'teacher_id');
+        return $this->belongsToMany(Course::class,'user_course');
     }
-
-    public function lessons()
-    {
-        return $this->belongsToMany(Lesson::class, 'user_lesson');
-    }
-
-    public function groups()
-    {
-        return $this->belongsToMany(Group::class, 'group_user')
-            ->withPivot(['is_leader','is_final'])
-            ->withTimestamps(['joined_at']);
-    }
-
 
     public function scopeUserRole($query)
     {
@@ -95,11 +81,6 @@ class User extends Authenticatable
         return $query->where('role', 'admin');
     }
 
-    public function scopeTeacherRole($query)
-    {
-        return $query->where('role', 'teacher');
-    }
-
     public function getIsAdminAttribute()
     {
         return $this->role == 'admin';
@@ -108,11 +89,6 @@ class User extends Authenticatable
     public function getIsUserAttribute()
     {
         return $this->role == 'user';
-    }
-
-    public function getIsTeacherAttribute()
-    {
-        return $this->role == 'teacher';
     }
 
     public function getFullNameAttribute()
@@ -139,8 +115,8 @@ class User extends Authenticatable
         }
     }
 
-    public function isLessonBelongsToUser(Lesson $lesson)
+    public function hasThisCourse(Course $course)
     {
-        return $this->lessons()->where('id', $lesson->id)->exists();
+        return $this->courses()->where('id',$course->id)->exists();
     }
 }

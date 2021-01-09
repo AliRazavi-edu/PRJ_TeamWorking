@@ -176,9 +176,13 @@ var HomeCard = /*#__PURE__*/function (_Component) {
         src: this.props.img
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "card-title"
-      }, this.props.title), this.props.description ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "card-text"
-      }, this.props.description) : null))));
+      }, "\u0631\u0634\u062A\u0647: ", this.props.studyField), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, "\u0627\u0633\u062A\u0627\u062F: ", this.props.teacher), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, "\u062F\u0648\u0631\u0647: ", this.props.semester)))));
     }
   }]);
 

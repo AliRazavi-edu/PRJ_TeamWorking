@@ -49,9 +49,9 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Routes/Lesson.js":
+/***/ "./resources/js/Routes/Course.js":
 /*!***************************************!*\
-  !*** ./resources/js/Routes/Lesson.js ***!
+  !*** ./resources/js/Routes/Course.js ***!
   \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -79,7 +79,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Lesson(props) {
+function Course(props) {
   var lessonId = props.match.params.lesson;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
@@ -99,7 +99,7 @@ function Lesson(props) {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     setLoading(true);
-    axios.get("/lesson/".concat(lessonId, "/show")).then(function (response) {
+    axios.get("/course/".concat(lessonId, "/show")).then(function (response) {
       return jsonHandler(response.data);
     })["catch"](function (err) {});
   }, []);
@@ -118,7 +118,7 @@ function Lesson(props) {
   }));
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Lesson);
+/* harmony default export */ __webpack_exports__["default"] = (Course);
 
 /***/ }),
 
@@ -189,9 +189,13 @@ var HomeCard = /*#__PURE__*/function (_Component) {
         src: this.props.img
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "card-title"
-      }, this.props.title), this.props.description ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "card-text"
-      }, this.props.description) : null))));
+      }, "\u0631\u0634\u062A\u0647: ", this.props.studyField), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, "\u0627\u0633\u062A\u0627\u062F: ", this.props.teacher), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, "\u062F\u0648\u0631\u0647: ", this.props.semester)))));
     }
   }]);
 

@@ -15,7 +15,7 @@ class CreateStudyFieldsTable extends Migration
     {
         Schema::create('study_fields', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->timestamps();
         });
     }

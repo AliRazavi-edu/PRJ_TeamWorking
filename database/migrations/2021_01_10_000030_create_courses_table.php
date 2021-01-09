@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeacherLessonTable extends Migration
+class CreateCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,19 @@ class CreateTeacherLessonTable extends Migration
      */
     public function up()
     {
-        Schema::create('teacher_lesson', function (Blueprint $table) {
-            $table->primary(['teacher_id', 'lesson_id']);
-
+        Schema::create('courses', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->unsignedBigInteger('study_field_id');
             $table->unsignedBigInteger('teacher_id');
             $table->unsignedBigInteger('lesson_id');
+            $table->boolean('is_ended')->default(false);
+            $table->timestamps();
 
-            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('study_field_id')->references('id')->on('study_fields')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+
         });
     }
 
@@ -31,6 +36,6 @@ class CreateTeacherLessonTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teacher_lesson');
+        Schema::dropIfExists('courses');
     }
 }

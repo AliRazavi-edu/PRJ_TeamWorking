@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->prefix('v1')->namespace('V1')->group(function () {
     Route::resource('admin/user', 'UserController');
 
-    Route::get('lessons', 'LessonController@index');
-    Route::get('lesson/{lesson}/show', 'LessonController@show');
+    Route::get('courses', 'CourseController@index');
+    Route::get('course/{course}/show', 'CourseController@show');
 });

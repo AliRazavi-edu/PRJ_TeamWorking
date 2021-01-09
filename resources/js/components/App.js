@@ -10,7 +10,7 @@ import Header from './Layouts/Header';
 
 // imports Routes
 const Home = loadable(() => import('../Routes/Home'))
-const Lesson = loadable(() => import('../Routes/Lesson'))
+const Course = loadable(() => import('../Routes/Course'))
 const Admin = loadable(() => import('../Routes/Admin'))
 const AdminUser = loadable(() => import('../Routes/Admin/User'))
 const AdminStudyField = loadable(() => import('../Routes/Admin/StudyField'))
@@ -43,7 +43,7 @@ function App() {
                             <Switch>
 
                                 <Route path="/home" exact component={Home}/>
-                                <Route path="/lesson/:lesson" component={Lesson}/>
+                                <Route path="/course/:course" component={Course}/>
 
                                 {renderAdminRoutes()}
 
