@@ -14,17 +14,17 @@ class CreateGroupUserTable extends Migration
     public function up()
     {
         Schema::create('group_user', function (Blueprint $table) {
-            $table->primary(['user_id', 'lesson_id']);
+            $table->primary(['user_id', 'group_id']);
 
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('lesson_id');
+            $table->unsignedBigInteger('group_id');
 
             $table->boolean('is_leader')->default(false);
 
             $table->timestamp('joined_at')->useCurrent();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
         });
     }
 
