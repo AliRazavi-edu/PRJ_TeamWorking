@@ -36692,7 +36692,7 @@ function unregister() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\xampp7.3\htdocs\PRJ_TeamWorking\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Project\GitHub\PRJ_TeamWorking\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
