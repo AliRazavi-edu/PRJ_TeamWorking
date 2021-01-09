@@ -1,0 +1,19 @@
+{
+    "Login": "ورود",
+    "Register": "ثبت نام",
+    "Logout": "خروج",
+    "Password": "کلمه عبور",
+    "Remember Me": "مرا بخاطر بسپار",
+    "E-Mail Address": "ایمیل",
+    "Forgot Your Password?": "رمز خود را فراموش کرده اید؟",
+    "Name": "نام",
+    "Confirm Password": "تکرار کلمه عبور",
+    "Reset Password": "بازنشانی رمز",
+    "Please confirm your password before continuing.": "لطفا قبل از ادامه کلمه عبور خود را تایید کنید",
+    "A fresh verification link has been sent to your email address.": "یگ لینک جدید تایید به ایمیل شما ارسال شد",
+    "Send Password Reset Link": "ارسال لینک بازیابی کلمه عبور",
+    "click here to request another": "برای ارسال دوباره اینجا را کلیک کنید",
+    "If you did not receive the email": "اگر ایمیلی دریافت نکرده اید",
+    "Before proceeding, please check your email for a verification link.": "قبل از ادامه، لطفا ایمیل خود را برای دریافت لینک تاییدیه بررسی کنید",
+    "Verify Your Email Address": "ایمیل خود را تایید کنید"
+}

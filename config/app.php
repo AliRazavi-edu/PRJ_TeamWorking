@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => "همگروهی",
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tehran',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fa',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Larabookir\Gateway\GatewayServiceProvider::class,
 
         /*
          * Application Service Providers...

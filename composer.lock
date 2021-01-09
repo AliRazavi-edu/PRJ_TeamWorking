@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a48593d144eeb402d9c02e6b17eae46",
+    "content-hash": "9d277b505e1377ba8816ace7fb39ca77",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,72 @@
                 "stack"
             ],
             "time": "2020-10-29T16:03:21+00:00"
+        },
+        {
+            "name": "beberlei/assert",
+            "version": "v3.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "d63a6943fc4fd1a2aedb65994e3548715105abcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/d63a6943fc4fd1a2aedb65994e3548715105abcf",
+                "reference": "d63a6943fc4fd1a2aedb65994e3548715105abcf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "php": "^7"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "*",
+                "phpstan/phpstan-shim": "*",
+                "phpunit/phpunit": ">=6.0.0 <8"
+            },
+            "suggest": {
+                "ext-intl": "Needed to allow Assertion::count(), Assertion::isCountable(), Assertion::minCount(), and Assertion::maxCount() to operate on ResourceBundles"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Assert\\": "lib/Assert"
+                },
+                "files": [
+                    "lib/Assert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/beberlei/assert/issues",
+                "source": "https://github.com/beberlei/assert/tree/v3"
+            },
+            "time": "2019-12-19T17:51:41+00:00"
         },
         {
             "name": "brick/math",
@@ -841,6 +907,95 @@
             "time": "2020-09-30T07:37:11+00:00"
         },
         {
+            "name": "larabook/gateway",
+            "version": "3.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/larabook/gateway.git",
+                "reference": "30272bc0bacd4ae5cc66b865f5a4766f53ebba19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/larabook/gateway/zipball/30272bc0bacd4ae5cc66b865f5a4766f53ebba19",
+                "reference": "30272bc0bacd4ae5cc66b865f5a4766f53ebba19",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "*",
+                "paypal/rest-api-sdk-php": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larabookir\\Gateway\\GatewayServiceProvider"
+                    ],
+                    "aliases": {
+                        "Gateway": "Larabookir\\Gateway\\Gateway"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larabookir\\Gateway\\": "src/",
+                    "Larabookir\\Gateway\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hamed Pakdaman",
+                    "email": "pakdaman.it@gmail.com"
+                },
+                {
+                    "name": "MohammadReza Honarkhah",
+                    "email": "m.honar@gmail.com"
+                },
+                {
+                    "name": "Amir Khorsandi",
+                    "email": "Khorsandi@me.com"
+                }
+            ],
+            "description": "A Laravel package for connecting to all Iraninan payment  gateways",
+            "homepage": "https://github.com/larabook/gateway",
+            "keywords": [
+                "Bank",
+                "Meli",
+                "Payline",
+                "asan-pardakht",
+                "dargah",
+                "gateway",
+                "ipay",
+                "iran",
+                "iranian-banks",
+                "jahanpay",
+                "laravel",
+                "mellat",
+                "pardakht",
+                "parsian",
+                "pasargad",
+                "pay",
+                "pay-ir",
+                "payment",
+                "paypal",
+                "persian-banks",
+                "poolport",
+                "port",
+                "sadad",
+                "saman",
+                "shaparak",
+                "zarinpal"
+            ],
+            "support": {
+                "issues": "https://github.com/larabook/gateway/issues",
+                "source": "https://github.com/larabook/gateway/tree/3.4.2"
+            },
+            "time": "2019-11-01T16:53:41+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.19.0",
             "source": {
@@ -1119,6 +1274,10 @@
                 "laravel",
                 "ui"
             ],
+            "support": {
+                "issues": "https://github.com/laravel/ui/issues",
+                "source": "https://github.com/laravel/ui/tree/v3.1.0"
+            },
             "time": "2020-11-03T19:51:21+00:00"
         },
         {
@@ -1451,6 +1610,65 @@
             "time": "2020-12-14T13:15:25+00:00"
         },
         {
+            "name": "morilog/jalali",
+            "version": "v3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/morilog/jalali.git",
+                "reference": "7ea78b84ce3b5546b01217febb2fba4915dac5e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/morilog/jalali/zipball/7ea78b84ce3b5546b01217febb2fba4915dac5e5",
+                "reference": "7ea78b84ce3b5546b01217febb2fba4915dac5e5",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "3.*",
+                "nesbot/carbon": "^1.21 || ^2.0",
+                "php": "^7.0 | ^7.1 | ^7.2 | ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Morilog\\Jalali\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milad Rey",
+                    "email": "miladr@gmail.com"
+                },
+                {
+                    "name": "Morteza Parvini",
+                    "email": "m.parvini@outlook.com"
+                }
+            ],
+            "description": "This Package helps developers to easily work with Jalali (Shamsi or Iranian) dates in PHP applications, based on Jalali (Shamsi) DateTime class.",
+            "keywords": [
+                "Jalali",
+                "date",
+                "datetime",
+                "laravel",
+                "morilog"
+            ],
+            "support": {
+                "issues": "https://github.com/morilog/jalali/issues",
+                "source": "https://github.com/morilog/jalali/tree/v3.2.0"
+            },
+            "time": "2020-12-01T21:26:31+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "2.42.0",
             "source": {
@@ -1651,6 +1869,60 @@
                 "serialize"
             ],
             "time": "2020-11-07T02:01:34+00:00"
+        },
+        {
+            "name": "paypal/rest-api-sdk-php",
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/72e2f2466975bf128a31e02b15110180f059fc04",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/paypal/PayPal-PHP-SDK/issues",
+                "source": "https://github.com/paypal/PayPal-PHP-SDK/tree/master"
+            },
+            "abandoned": true,
+            "time": "2019-01-04T20:04:25+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7007,5 +7279,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
