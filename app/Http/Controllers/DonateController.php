@@ -51,7 +51,7 @@ class DonateController extends Controller
         try {
 
             $gateway = Gateway::make('zarinpal');
-            $gateway->price($request->input('price'));
+            $gateway->price($request->input('price')*10);
             $gateway->setCallback(route('donate.invoice'));
 
             $gateway->ready();
