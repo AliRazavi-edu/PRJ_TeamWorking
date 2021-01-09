@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\StudyField;
 use Illuminate\Database\Seeder;
 
 class StudyFieldSeeder extends Seeder
@@ -13,6 +14,6 @@ class StudyFieldSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\StudyField::factory(10)->create();
+        StudyField::factory(10)->create();
     }
 }

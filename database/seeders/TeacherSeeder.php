@@ -19,10 +19,15 @@ class TeacherSeeder extends Seeder
             $this->call([StudyFieldSeeder::class]);
 
         Teacher::factory(20)->create()->each(function ($record){
-            $studyField = StudyField::query()->inRandomOrder()->first();
+            $studyFieldIds = StudyField::query()
+                ->inRandomOrder()
+                ->take(rand(1,3))
+                ->get()
+                ->pluck('id')
+                ->toArray();
 
             /** @var Teacher $record */
-            $record->studyFields()->syncWithoutDetaching([$studyField->id]);
+            $record->studyFields()->syncWithoutDetaching($studyFieldIds);
         });
 
     }

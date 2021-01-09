@@ -65,6 +65,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Lesson::class, 'user_lesson');
     }
 
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_user')
+            ->withPivot(['is_leader'])
+            ->withTimestamps(['joined_at']);
+    }
+
+
     public function scopeUserRole($query)
     {
         return $query->where('role', 'user');

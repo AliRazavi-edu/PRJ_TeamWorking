@@ -19,10 +19,16 @@ class LessonSeeder extends Seeder
             $this->call([TeacherSeeder::class]);
 
         Lesson::factory(20)->create()->each(function ($record){
-            $teacher = Teacher::query()->inRandomOrder()->first();
+
+            $teacherIds = Teacher::query()
+                ->inRandomOrder()
+                ->take(rand(1,3))
+                ->get()
+                ->pluck('id')
+                ->toArray();
 
             /** @var Lesson $record */
-            $record->teachers()->syncWithoutDetaching([$teacher->id]);
+            $record->teachers()->syncWithoutDetaching($teacherIds);
         });
     }
 }

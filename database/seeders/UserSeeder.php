@@ -18,12 +18,17 @@ class UserSeeder extends Seeder
         if (!Lesson::query()->inRandomOrder()->exists())
             $this->call([LessonSeeder::class]);
 
-        User::factory(20)->create()->each(function ($record){
+        User::factory(20)->create()->each(function ($record) {
 
-            $lesson = Lesson::query()->inRandomOrder()->first();
+            $lessonIds = Lesson::query()
+                ->inRandomOrder()
+                ->limit(rand(1, 5))
+                ->get()
+                ->pluck('id')
+                ->toArray();
 
             /** @var User $record */
-            $record->lessons()->syncWithoutDetaching([$lesson->id]);
+            $record->lessons()->syncWithoutDetaching($lessonIds);
         });
     }
 }
