@@ -24,6 +24,7 @@
         "@loadable/component": "^5.14.1",
         "animejs": "^3.2.1",
         "bootstrap-v4-rtl": "^4.5.2-1",
+        "react-beautiful-dnd": "^13.0.0",
         "react-data-table-component": "^6.11.6",
         "react-loading-overlay": "^1.0.1",
         "react-router-dom": "^5.2.0",

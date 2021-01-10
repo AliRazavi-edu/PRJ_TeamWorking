@@ -36536,10 +36536,10 @@ __webpack_require__.r(__webpack_exports__);
  // imports Routes
 
 var Home = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../Routes/Home */ "./resources/js/Routes/Home.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../Routes/Home */ "./resources/js/Routes/Home.js"));
 });
 var Course = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../Routes/Course */ "./resources/js/Routes/Course.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../Routes/Course */ "./resources/js/Routes/Course.js"));
 });
 var Admin = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
   return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Routes/Admin */ "./resources/js/Routes/Admin.js"));

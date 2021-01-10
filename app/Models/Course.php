@@ -53,7 +53,7 @@ class Course extends Model
 
     public function scopeNotEnded($query)
     {
-        return $query->where('is_ended', '!=', 0);
+        return $query->where('is_ended', '!=', true);
     }
 
 }

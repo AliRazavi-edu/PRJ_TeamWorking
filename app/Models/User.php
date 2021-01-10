@@ -44,7 +44,8 @@ class User extends Authenticatable
     ];
 
     protected $appends = [
-        'full_name', 'display_name'
+        'full_name',
+        'display_name'
     ];
 
     /**
@@ -68,7 +69,15 @@ class User extends Authenticatable
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class,'user_course');
+        return $this->belongsToMany(Course::class, 'user_course');
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_user')->withPivot([
+            'is_leader',
+            'is_final',
+        ])->withTimestamps(['joined_at']);
     }
 
     public function scopeUserRole($query)
@@ -117,6 +126,6 @@ class User extends Authenticatable
 
     public function hasThisCourse(Course $course)
     {
-        return $this->courses()->where('id',$course->id)->exists();
+        return $this->courses()->where('id', $course->id)->exists();
     }
 }
