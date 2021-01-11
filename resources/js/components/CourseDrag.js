@@ -1,81 +1,31 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-
-// fake data generator
-const getItems = (count, offset = 0) =>
-    Array.from({ length: count }, (v, k) => k).map(k => ({
-        id: `item-${k + offset}`,
-        content: `item ${k + offset}`
-    }));
-
-// a little function to help us with reordering the result
-const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-
-    return result;
-};
-
-/**
- * Moves an item from one list to another list.
- */
-const move = (source, destination, droppableSource, droppableDestination) => {
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const [removed] = sourceClone.splice(droppableSource.index, 1);
-
-    destClone.splice(droppableDestination.index, 0, removed);
-
-    const result = {};
-    result[droppableSource.droppableId] = sourceClone;
-    result[droppableDestination.droppableId] = destClone;
-
-    return result;
-};
+import React, {Component} from 'react';
+import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import '../../css/group.css';
+import UserDrag from "./UserDrag";
 
 const grid = 8;
 
-const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
-    userSelect: 'none',
-    padding: grid * 2,
-    margin: `0 0 ${grid}px 0`,
-
-    // change background colour if dragging
-    background: isDragging ? 'lightgreen' : 'grey',
-
-    // styles we need to apply on draggables
-    ...draggableStyle
-});
-
 const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? 'lightblue' : 'lightgrey',
+    background: isDraggingOver ? '#e7e7e7' : 'rgb(253 247 253)',
     padding: grid,
-    width: 250
+    // width: 250,
+    minHeight: "100px",
+    marginBottom: "10px"
 });
 
 class CourseDrag extends Component {
-    state = {
-        items: getItems(10),
-        selected: getItems(5, 10)
-    };
 
-    /**
-     * A semi-generic way to handle multiple lists. Matches
-     * the IDs of the droppable container to the names of the
-     * source arrays stored in the state.
-     */
-    id2List = {
-        droppable: 'items',
-        droppable2: 'selected'
-    };
-
-    getList = id => this.state[this.id2List[id]];
+    componentDidMount() {
+        this.props.setLoading(true);
+        this.setState(
+            this.props
+        );
+        this.props.setLoading(false);
+    }
 
     onDragEnd = result => {
-        const { source, destination } = result;
+
+        const {source, destination} = result;
 
         // dropped outside the list
         if (!destination) {
@@ -83,96 +33,97 @@ class CourseDrag extends Component {
         }
 
         if (source.droppableId === destination.droppableId) {
-            const items = reorder(
-                this.getList(source.droppableId),
-                source.index,
-                destination.index
-            );
+            //todo:: add here if needed
+        } else {
 
-            let state = { items };
+            if(source.droppableId == 'droppable'){
+                let destinationGroup = this.state.groups.find((item) => item.id == destination.droppableId);
 
-            if (source.droppableId === 'droppable2') {
-                state = { selected: items };
+                const [removed] = this.state.users.splice(source.index, 1)
+
+                destinationGroup.users.splice(destination.index, 0, removed);
+
+            }else if(destination.droppableId == 'droppable'){
+                let sourceGroup = this.state.groups.find((item) => item.id == source.droppableId);
+
+                const [removed] = sourceGroup.users.splice(source.index, 1)
+
+               this.state.users.splice(destination.index, 0, removed);
+
+            }else{
+                let sourceGroup = this.state.groups.find((item) => item.id == source.droppableId);
+                let destinationGroup = this.state.groups.find((item) => item.id == destination.droppableId);
+
+                const [removed] = sourceGroup.users.splice(source.index, 1)
+                destinationGroup.users.splice(destination.index, 0, removed);
             }
 
-            this.setState(state);
-        } else {
-            const result = move(
-                this.getList(source.droppableId),
-                this.getList(destination.droppableId),
-                source,
-                destination
-            );
-
-            this.setState({
-                items: result.droppable,
-                selected: result.droppable2
-            });
         }
     };
+
 
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
         return (
-            <DragDropContext onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppable">
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.items.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}>
-                                            {item.content}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            {provided.placeholder}
+            <div className="container page-todo bootstrap snippets bootdeys">
+                <div className="row">
+                    <DragDropContext onDragEnd={this.onDragEnd}>
+                        <div className="col-sm-6 tasks">
+                            <div className="task-list">
+                                <h1>اعضا</h1>
+                                {
+                                    this.state == null
+                                        ? null
+                                        : <Droppable droppableId="droppable">
+                                            {(provided, snapshot) => (
+                                                <div
+                                                    ref={provided.innerRef}
+                                                    style={getListStyle(snapshot.isDraggingOver)}>
+                                                    {this.state.users.map((user, index) => (
+                                                        <UserDrag key={user.id} user={user} index={index}/>
+                                                    ))}
+                                                    {provided.placeholder}
+                                                </div>
+                                            )}
+                                        </Droppable>
+                                }
+                            </div>
                         </div>
-                    )}
-                </Droppable>
-                <Droppable droppableId="droppable2">
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.selected.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}>
-                                            {item.content}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            {provided.placeholder}
+                        <div className="col-sm-6 tasks">
+                            <div className="task-list">
+                                <h1>گروه ها</h1>
+                                {
+                                    this.state == null
+                                        ? null
+                                        : this.state.groups.map(function (group, index) {
+                                            return (
+                                                <div className="group" key={group.id}>
+                                                    <div className="priority low"><span>{group.title}</span></div>
+
+                                                    <Droppable droppableId={group.id.toString()}>
+                                                        {(provided, snapshot) => (
+                                                            <div
+                                                                ref={provided.innerRef}
+                                                                style={getListStyle(snapshot.isDraggingOver)}>
+                                                                {group.users.map((user, index) => (
+                                                                    <UserDrag key={user.id} user={user} index={index}/>
+                                                                ))}
+                                                                {provided.placeholder}
+                                                            </div>
+                                                        )}
+                                                    </Droppable>
+
+                                                </div>
+                                            )
+                                        })
+                                }
+
+                            </div>
                         </div>
-                    )}
-                </Droppable>
-            </DragDropContext>
+                    </DragDropContext>
+                </div>
+            </div>
         );
     }
 }

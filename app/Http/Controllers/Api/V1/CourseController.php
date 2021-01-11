@@ -49,16 +49,6 @@ class CourseController extends Controller
         if (!$user->hasThisCourse($course))
             return abort(404);
 
-        $users = $course->users()->whereDoesntHave('groups')->select([
-            'id',
-            'name',
-            'family',
-            'email'
-        ])->latest()->get();
-
-        $studyField = $course->studyField()->first();
-        $teacher = $course->teacher()->first();
-        $lesson = $course->lesson()->first();
         $groups = Group::query()->where('course_id', $course->id)->with([
             'users' => function ($q) {
                 $q->select([
@@ -69,6 +59,21 @@ class CourseController extends Controller
                 ])->orderBy('group_user.joined_at');
             }
         ])->get();
+
+        $groupIds = $groups->pluck('id')->toArray();
+
+        $users = $course->users()->whereDoesntHave('groups',function ($q) use ($groupIds){
+            $q->whereIn('id',$groupIds);
+        })->select([
+            'id',
+            'name',
+            'family',
+            'email',
+        ])->latest()->get();
+
+        $studyField = $course->studyField()->first();
+        $teacher = $course->teacher()->first();
+        $lesson = $course->lesson()->first();
 
         return response([
             'course'     => $course,
