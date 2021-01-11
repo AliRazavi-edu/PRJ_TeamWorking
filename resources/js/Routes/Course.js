@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import HomeCard from "../components/HomeCard";
 import LoadingOverlay from 'react-loading-overlay';
+import CourseDrag from "../components/CourseDrag";
 
 
 function Course(props) {
@@ -52,14 +53,7 @@ function Course(props) {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-6 bg-white">
-                                        <p className="card-text">رشته: {pageProps.studyField.title}</p>
-                                        <p className="card-text">استاد: {pageProps.teacher.name}</p>
-                                    </div>
-                                    <div className="col-6 bg-white">
-                                        <p className="card-text">رشته: {pageProps.studyField.title}</p>
-                                        <p className="card-text">استاد: {pageProps.teacher.name}</p>
-                                    </div>
+                                    <CourseDrag />
                                 </div>
                             </>
                         )

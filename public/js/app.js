@@ -2769,7 +2769,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\r\nbody\r\n{\r\n    background-color:#141019;\r\n    background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;\r\n}\r\n\r\n\r\n#handboy\r\n{\r\n    animation: swing ease-in-out 1.3s infinite alternate;\r\n    transform-origin: 98% 98%;\r\n    transform-box: fill-box;\r\n\r\n}\r\n\r\n\r\n#girllight\r\n{\r\n    animation: swing ease-in-out 1.3s infinite alternate;\r\n    transform-origin: 0% 97%;\r\n    transform-box: fill-box;\r\n}\r\n\r\n#hairgirl\r\n{\r\n    animation: swinghair ease-in-out 1.3s infinite alternate;\r\n    transform-origin: 60% 0%;\r\n    transform-box: fill-box;\r\n\r\n}\r\n\r\n#zero\r\n{\r\n    transform-origin:bottom;\r\n    transform-box:fill-box;\r\n\r\n}\r\n\r\n/*************swing************/\r\n@keyframes swing {\r\n    0% { transform: rotate(10deg); }\r\n    100% { transform: rotate(-10deg); }\r\n}\r\n\r\n\r\n/*************swing hair************/\r\n@keyframes swinghair {\r\n    0% { transform: rotate(6deg); }\r\n    100% { transform: rotate(-6deg); }\r\n}\r\n", ""]);
+exports.push([module.i, "\nbody\n{\n    background-color:#141019;\n    background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;\n}\n\n\n#handboy\n{\n    animation: swing ease-in-out 1.3s infinite alternate;\n    transform-origin: 98% 98%;\n    transform-box: fill-box;\n\n}\n\n\n#girllight\n{\n    animation: swing ease-in-out 1.3s infinite alternate;\n    transform-origin: 0% 97%;\n    transform-box: fill-box;\n}\n\n#hairgirl\n{\n    animation: swinghair ease-in-out 1.3s infinite alternate;\n    transform-origin: 60% 0%;\n    transform-box: fill-box;\n\n}\n\n#zero\n{\n    transform-origin:bottom;\n    transform-box:fill-box;\n\n}\n\n/*************swing************/\n@keyframes swing {\n    0% { transform: rotate(10deg); }\n    100% { transform: rotate(-10deg); }\n}\n\n\n/*************swing hair************/\n@keyframes swinghair {\n    0% { transform: rotate(6deg); }\n    100% { transform: rotate(-6deg); }\n}\n", ""]);
 
 // exports
 
@@ -2788,7 +2788,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "body {\r\n    font-family: \"Vazir\";\r\n}\r\n", ""]);
+exports.push([module.i, "body {\n    font-family: \"Vazir\";\n}\n", ""]);
 
 // exports
 
@@ -36539,7 +36539,7 @@ var Home = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(f
   return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../Routes/Home */ "./resources/js/Routes/Home.js"));
 });
 var Course = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../Routes/Course */ "./resources/js/Routes/Course.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ../Routes/Course */ "./resources/js/Routes/Course.js"));
 });
 var Admin = Object(_loadable_component__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
   return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../Routes/Admin */ "./resources/js/Routes/Admin.js"));
