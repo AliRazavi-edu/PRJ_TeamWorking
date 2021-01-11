@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudyFieldsTable extends Migration
+class CreateGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateStudyFieldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('study_fields', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('course_id');
             $table->string('title');
+            $table->unsignedInteger('limit');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateStudyFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('study_fields');
+        Schema::dropIfExists('groups');
     }
 }
