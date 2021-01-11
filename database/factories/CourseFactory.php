@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Lesson;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LessonFactory extends Factory
+class CourseFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Lesson::class;
+    protected $model = Course::class;
 
     /**
      * Define the model's default state.
@@ -23,6 +23,7 @@ class LessonFactory extends Factory
     {
         return [
             'title' => $this->faker->words(rand(1,3),true),
+            'is_ended' => $this->faker->boolean,
         ];
     }
 }

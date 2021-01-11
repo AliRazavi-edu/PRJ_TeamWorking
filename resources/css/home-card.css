@@ -94,3 +94,7 @@
     height: 120px;
     border-radius: 50%;
 }
+
+.home-card a:hover {
+    text-decoration: none;
+}

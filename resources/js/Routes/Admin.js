@@ -41,6 +41,14 @@ function Admin() {
                     />
                 </div>
 
+                <div className="col-md-4 align-content-center">
+                    <HomeCard
+                        img='https://picsum.photos/id/54/400/300'
+                        title='گروه ها'
+                        description='در این بخش می توانید گروه ها را مدیریت کنید'
+                        link="/admin/group"
+                    />
+                </div>
             </div>
         </>
     )

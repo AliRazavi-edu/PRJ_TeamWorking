@@ -17,6 +17,8 @@ use Illuminate\Notifications\Notifiable;
  * @property string email
  * @property string student_number
  * @property string api_token
+ * @property boolean is_admin
+ * @property boolean is_user
  * Class User
  * @package App\Models
  */
@@ -41,6 +43,11 @@ class User extends Authenticatable
         'api_token',
     ];
 
+    protected $appends = [
+        'full_name',
+        'display_name'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -60,9 +67,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function lessons()
+    public function courses()
     {
-        return $this->belongsToMany(Lesson::class, 'user_lesson');
+        return $this->belongsToMany(Course::class, 'user_course');
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_user')->withPivot([
+            'is_leader',
+            'is_final',
+        ])->withTimestamps(['joined_at']);
     }
 
     public function scopeUserRole($query)
@@ -73,6 +88,16 @@ class User extends Authenticatable
     public function scopeAdminRole($query)
     {
         return $query->where('role', 'admin');
+    }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->role == 'admin';
+    }
+
+    public function getIsUserAttribute()
+    {
+        return $this->role == 'user';
     }
 
     public function getFullNameAttribute()
@@ -97,5 +122,10 @@ class User extends Authenticatable
             default:
                 return null;
         }
+    }
+
+    public function hasThisCourse(Course $course)
+    {
+        return $this->courses()->where('id', $course->id)->exists();
     }
 }

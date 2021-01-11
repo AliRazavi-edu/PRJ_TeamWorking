@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
             StudyFieldSeeder::class,
             TeacherSeeder::class,
             LessonSeeder::class,
+            CourseSeeder::class,
             UserSeeder::class,
+            UserCourseSeeder::class,
+            GroupSeeder::class,
         ]);
     }
 }

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
 import Axios from "axios";
+import '../css/404.css';
+import '../css/app.css';
 
 window.laravel.csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 window.laravel.user = JSON.parse(window.laravel.user);

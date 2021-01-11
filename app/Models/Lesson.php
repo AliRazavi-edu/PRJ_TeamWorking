@@ -5,17 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int id
+ * @property string name
+ * @property string description
+ *
+ * Class Lesson
+ * @package App\Models
+ */
 class Lesson extends Model
 {
     use HasFactory;
 
-    public function teachers()
-    {
-        return $this->belongsToMany(Teacher::class,'teacher_lesson');
-    }
+    protected $fillable = [
+        'name'
+    ];
 
-    public function users()
+    public function courses()
     {
-        return $this->belongsToMany(User::class,'user_lesson');
+        return $this->hasMany(Course::class);
     }
 }
