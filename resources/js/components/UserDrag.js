@@ -28,7 +28,6 @@ class UserDrag extends Component {
 
         const isDragDisabled = user.id != window.laravel.user.id;
 
-        console.log(user);
         return <Draggable
             draggableId={user.id.toString()}
             isDragDisabled={isDragDisabled}
