@@ -27,6 +27,7 @@ class CourseDrag extends Component {
 
         const {source, destination} = result;
 
+        console.log(result);
         // dropped outside the list
         if (!destination) {
             return;
@@ -36,26 +37,60 @@ class CourseDrag extends Component {
             //todo:: add here if needed
         } else {
 
-            if(source.droppableId == 'droppable'){
+            if (source.droppableId == 'droppable') {
                 let destinationGroup = this.state.groups.find((item) => item.id == destination.droppableId);
 
-                const [removed] = this.state.users.splice(source.index, 1)
+                const [user] = this.state.users.splice(source.index, 1)
 
-                destinationGroup.users.splice(destination.index, 0, removed);
+                destinationGroup.users.splice(destination.index, 0, user);
 
-            }else if(destination.droppableId == 'droppable'){
+                axios.post(`/course/user/update`, {
+                    destinationGroupId: destinationGroup.id,
+                    userId: user.id,
+                })
+                    .then(response => {
+                        this.props.setLoading(false);
+                    })
+                    .catch(err => {
+                        this.props.setLoading(false);
+                    });
+            } else if (destination.droppableId == 'droppable') {
                 let sourceGroup = this.state.groups.find((item) => item.id == source.droppableId);
 
-                const [removed] = sourceGroup.users.splice(source.index, 1)
+                const [user] = sourceGroup.users.splice(source.index, 1)
 
-               this.state.users.splice(destination.index, 0, removed);
+                this.state.users.splice(destination.index, 0, user);
 
-            }else{
+                this.props.setLoading(true);
+                axios.post(`/course/user/update`, {
+                    srcGroupId: sourceGroup.id,
+                    userId: user.id,
+                })
+                    .then(response => {
+                        this.props.setLoading(false);
+                    })
+                    .catch(err => {
+                        this.props.setLoading(false);
+                    });
+            } else {
                 let sourceGroup = this.state.groups.find((item) => item.id == source.droppableId);
                 let destinationGroup = this.state.groups.find((item) => item.id == destination.droppableId);
 
-                const [removed] = sourceGroup.users.splice(source.index, 1)
-                destinationGroup.users.splice(destination.index, 0, removed);
+                const [user] = sourceGroup.users.splice(source.index, 1)
+                destinationGroup.users.splice(destination.index, 0, user);
+
+                this.props.setLoading(true);
+                axios.post(`/course/group/update`, {
+                    srcGroupId: sourceGroup.id,
+                    destinationGroupId: destinationGroup.id,
+                    userId: user.id,
+                })
+                    .then(response => {
+                        this.props.setLoading(false);
+                    })
+                    .catch(err => {
+                        this.props.setLoading(false);
+                    });
             }
 
         }

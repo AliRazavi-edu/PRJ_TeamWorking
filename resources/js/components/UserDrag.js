@@ -4,15 +4,15 @@ import '../../css/group.css';
 
 const grid = 8;
 
-const getItemStyle = (isDragging, draggableStyle,isDragDisabled) => ({
+const getItemStyle = (isDragging, draggableStyle, isDragDisabled) => ({
     // some basic styles to make the items look a bit nicer
     userSelect: 'none',
-    padding: grid * 2,
+    padding: grid,
     margin: `0 0 ${grid}px 0`,
     boxShadow: '0 3px 6px 0 #c3c3c3c7',
     // change background colour if dragging
     background: isDragDisabled
-        ? 'lightgrey'
+        ? '#e2e2e2'
         : isDragging
             ? 'rgba(126,229,173,0.9)'
             : '#fdfdfd',
@@ -42,13 +42,24 @@ class UserDrag extends Component {
                          provided.draggableProps.style,
                          isDragDisabled
                      )}>
-                    <div className="desc">
+                    <div className="desc col-sm-10">
                         <div
                             className="title">{user.display_name}</div>
                         <div>
                             {user.email}
                         </div>
                     </div>
+
+                    <div className="pull-left col-sm-2 text-center">
+                        {
+                            isDragDisabled
+                                ? null
+                                :
+                                <i className="fa fa-user-circle-o" title="دانشجو"></i>
+                        }
+
+                    </div>
+
                 </div>
             )}
         </Draggable>

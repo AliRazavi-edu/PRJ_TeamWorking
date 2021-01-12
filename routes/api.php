@@ -19,4 +19,6 @@ Route::middleware('auth:api')->prefix('v1')->namespace('V1')->group(function () 
 
     Route::get('courses', 'CourseController@index');
     Route::get('course/{course}/show', 'CourseController@show');
+    Route::post('course/group/update', 'CourseController@updateGroup');
+    Route::post('course/user/update', 'CourseController@updateUsers');
 });
