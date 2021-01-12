@@ -62,7 +62,7 @@
 
 .page-todo .task .desc {
     display: inline-block;
-    width: 95%;
+    width: 100%;
     padding: 10px 10px;
     font-size: 12px
 }
